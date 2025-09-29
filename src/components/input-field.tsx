@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Eye, EyeOff, X } from "lucide-react";
 import { motion } from "motion/react";
 
-interface InputFieldProps {
+export interface InputFieldProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
@@ -19,7 +19,7 @@ interface InputFieldProps {
   dark?: boolean;
 }
 
-const InputField = ({
+export const InputField = ({
   value,
   onChange,
   label,
@@ -157,5 +157,3 @@ const InputField = ({
     </div>
   );
 };
-
-export default InputField;

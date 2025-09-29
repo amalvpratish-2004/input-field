@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent } from "react";
-import InputField from "./components/input-field";
+import { InputField } from "./components/input-field";
 import { motion } from "motion/react";
 
 const App = () => {
