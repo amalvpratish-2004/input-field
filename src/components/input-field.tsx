@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { Eye, EyeOff, X } from "lucide-react";
+import { motion } from "motion/react";
 
 interface InputFieldProps {
   value?: string;
@@ -83,7 +84,10 @@ const InputField = ({
         </label>
       )}
 
-      <div className="relative">
+      <motion.div 
+        className="relative"
+        whileHover={{ scale: 1.03 }}
+      >
         <input
           type={type === "password" && showPassword ? "text" : type}
           value={value}
@@ -128,7 +132,7 @@ const InputField = ({
             </button>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {(helperText || errorMessage) && (
         <div className="min-h-[20px]">

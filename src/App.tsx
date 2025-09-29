@@ -1,5 +1,6 @@
-import { useState, type ChangeEvent } from "react"
-import InputField from "./components/input-field"
+import { useState, type ChangeEvent } from "react";
+import InputField from "./components/input-field";
+import { motion } from "motion/react";
 
 const App = () => {
   const [username, setUsername] = useState("");
@@ -10,7 +11,13 @@ const App = () => {
   const handleSubmit = () => {
     if (username === "" || password === "" || password.length < 8) {
       setUsernameErrorMessage(username === "" ? "Username is required" : "");
-      setPasswordErrorMessage(password === "" ? "Password is required" : password.length < 8 ? "Password must be at least 8 characters" : "");
+      setPasswordErrorMessage(
+        password === ""
+          ? "Password is required"
+          : password.length < 8
+          ? "Password must be at least 8 characters"
+          : ""
+      );
     } else {
       setUsernameErrorMessage("");
       setPasswordErrorMessage("");
@@ -19,12 +26,10 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100 p-4">
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8 space-y-8">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-bold text-gray-900">
-            Login
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900">Login</h2>
         </div>
 
         <div className="space-y-6">
@@ -69,13 +74,15 @@ const App = () => {
           </div>
         </div>
 
-        <button
+        <motion.button
           type="button"
           onClick={handleSubmit}
-          className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-200 shadow-md hover:shadow-lg"
+          className="w-full py-3 px-4 bg-green-700 hover:bg-green-800 text-white font-medium rounded-lg transition duration-200 shadow-md hover:shadow-lg"
+          whileHover={{ scale: 1.025 }}
+          whileTap={{ scale: 0.999 }}
         >
           Submit
-        </button>
+        </motion.button>
       </div>
     </div>
   );
